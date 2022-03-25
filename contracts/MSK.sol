@@ -11,7 +11,7 @@ import "@chainlink/contracts/src/v0.8/VRFConsumerBase.sol";
 import "hardhat/console.sol";
 
 
-contract MSK is ERC1155, Ownable {
+contract MSK is ERC1155, Ownable, VRFConsumerBase {
 
 
 
@@ -24,18 +24,26 @@ contract MSK is ERC1155, Ownable {
     uint256 private seed; //seed used to randomize
 
     //chainlink
-  //  uint256 internal fee;
-  //  uint256 public randomResult;
-  //  bytes32 internal keyHash;
+    uint256 internal fee;
+    uint256 public randomResult;
+    bytes32 internal keyHash;
 
-    string public NFT =  'ipfs://QmYvE5MUHpTXE9Bwtr6BCCHn7R1h2SQoYbsg5P1omFYEP6/';  
+    string public NFT =  'ipfs://QmV97nzpk4Dibf3FSewLJm1a53nzArXbbW5f75sXRF4ZT7/';  
                              
 
     mapping(address => mapping (uint256 => uint256))  public tokenBalance;
     
 
-    constructor() ERC1155(NFT)  public {
- 
+    constructor() 
+        ERC1155(NFT)
+        VRFConsumerBase(
+             0x8C7382F9D8f56b33781fE506E897a4F1e2d17255,
+             0x326C977E6efc84E512bB9C30f76E30c160eD06FB 
+              )  public {
+
+        //chainlink
+        keyHash = 0x6e75b569a01ef56d18cab6a8e71e6600d6ce853834d4a5748b720d06f878b3a4;
+        fee = 0.0001 * 10 ** 18; // 0.0001 LINK
     }
 
     //Events
@@ -49,13 +57,14 @@ contract MSK is ERC1155, Ownable {
     // Mint NFT
     function mintNFT(uint256 _amount) public {
         require(_amount > 0, "Amount must be greater than zer0");
-         uint256 random = randomize();
-         console.log("random" , random);
-         if(random > 90){
+        // uint256 random = randomize();
+        // console.log("random" , random);
+
+         if(randomResult > 90){
             _mint(msg.sender, Pimpfluencer, _amount, "");
             tokenBalance[msg.sender][Pimpfluencer] += _amount;
             emit NFTMinted(Pimpfluencer, msg.sender, _amount);
-         }else if (random >=70 && random <=90) {
+         }else if (randomResult >=70 && randomResult <=90) {
              _mint(msg.sender, Influencer, _amount, "");
             tokenBalance[msg.sender][Influencer] += _amount;
             emit NFTMinted(Influencer, msg.sender, _amount);
@@ -82,7 +91,11 @@ contract MSK is ERC1155, Ownable {
         return seed;
     } 
 
-    /*
+    function startCLRandom() public onlyOwner {
+        getRandomNumber();
+    } 
+
+
     // chainlink
     function getRandomNumber() public returns (bytes32 requestId) {
         require(LINK.balanceOf(address(this)) >= fee, "Not enough LINK - fill contract with faucet");
@@ -92,13 +105,11 @@ contract MSK is ERC1155, Ownable {
     function fulfillRandomness(bytes32 requestId, uint256 randomness) internal override {
         randomResult = randomness % 100;
     }
-    */
-
-    /*
+    
     //function to pull out extra link
     function withdrawLink() public onlyOwner {
         require(LINK.transfer(msg.sender, LINK.balanceOf(address(this))), "Unable to transfer");
-    } */
+    } 
 
     // URI overide for number schemes
     function uri(uint256 _tokenId) override public view returns (string memory) {
