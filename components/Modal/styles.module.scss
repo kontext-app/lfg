@@ -1,0 +1,49 @@
+.modalWrapper {
+  background: rgba(0, 0, 20, 0.71);
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  z-index: 2;
+  color: #000;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 10px 11px 54px 25px rgba(55, 55, 55, 0.43);
+  padding: 44px;
+  box-sizing: border-box;
+  position: relative;
+  width: 600px;
+  height: 400px;
+  .close {
+    cursor: pointer;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+  }
+}
+
+.modalContent {
+  overflow-y: auto;
+  margin: 0 auto;
+  min-height: 400px;
+  max-height: 80vh;
+}
+
+@media (max-width: 992px) {
+  .modal {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 93%;
+  }
+}

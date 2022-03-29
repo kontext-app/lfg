@@ -1,0 +1,111 @@
+.newsList {
+    padding: 24px 0;
+    margin: unset;
+    min-height: 90vh;
+    list-style: none;
+}
+
+.loadingNews {
+    margin-top: 16px;
+    font-size: 28px;
+}
+
+.bgImgContainer {
+    overflow: hidden;
+    position: relative;
+}
+
+.newsItem {
+    margin-bottom: 6px;
+    margin: 0 12px 16px 40px;
+    position: relative;
+    .index {
+        position: absolute;
+        left: -24px;
+        top: 0px;
+        font-size: 14px;
+        text-align: right;
+        width: 20px;
+    }
+    .title {
+        font-weight: 600;
+        margin-right: 10px;
+        text-decoration: none;
+    }
+    .brand {
+        color: #8791a1;
+        font-weight: 400;
+        font-size: 14px;
+        text-decoration: none;
+    }
+    .bottomInfo {
+        color: #8791a1;
+        display: flex;
+        align-items: center;
+        margin-top: 4px;
+        font-size: 14px;
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 4px 0 0;
+        }
+        .shares {
+            // font-size: 16px;
+            color: #8791a1;
+            margin: 0 8px 0 0;
+        }
+        .divider {
+            margin: 0 8px;
+        }
+        .time {
+            // font-size: 16px;
+            margin: 0 8px 0 0;
+        }
+    }
+    .sharesList {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+        .shareItem {
+            width: calc(50% - 4px);
+            margin: 4px 0;
+            padding: 8px;
+            border: 1px solid #000;
+            .shareTop {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 8px;
+                color: #8791a1;
+                font-size: 14px;
+                .shareName {
+                    font-size: 18px;
+                }
+            }
+            .shareContent {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .newsItem {
+        margin: 0 12px 16px 40px;
+        .sharesList {
+            display: block;
+            .shareItem {
+                width: 100%;
+                margin: 8px auto;
+                .shareTop {
+                    .shareName {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}

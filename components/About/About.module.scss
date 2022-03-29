@@ -1,0 +1,22 @@
+a.link {
+    text-decoration: underline;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0 10px;
+    border-bottom: 2px solid #000000;
+}
+
+.textContainer {
+    margin: auto;
+    max-width: 60%;
+    padding: 40px 0 40px 0;
+    //min-height: 70vh;
+}
+
+@media (max-width: 768px) {
+
+}

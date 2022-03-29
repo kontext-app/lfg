@@ -1,0 +1,45 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0 10px;
+    border-bottom: 2px solid #000000;
+}
+
+.logo {
+    width: 88px;
+    cursor: pointer;
+}
+
+.headerCenter{
+    a{
+        padding: 0 10px;
+        border-right: 2px solid #000;
+        line-height: 1;
+        &:last-child{
+            border-right: unset;
+            padding-right: 0;
+        }
+    }
+}
+
+.headerRight {
+  a{
+    text-decoration: none;
+    margin-left: 16px;
+    &:hover{
+        text-decoration: underline;
+    }
+  }
+  .wallet{
+      background: #000;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 8px;
+
+  }
+}
+
+@media (max-width: 768px) {
+
+}

@@ -1,0 +1,20 @@
+.footer {
+    color: #fff;
+    background: #000;
+    padding: 52px 0;
+}
+
+.footerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    ul {
+      list-style-type: none;
+      li {
+        padding-top: 8px;
+        a {
+          color: #fff;
+        }
+      }
+    }
+}

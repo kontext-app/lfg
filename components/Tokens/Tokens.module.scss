@@ -1,0 +1,28 @@
+.tokensTable {
+    margin: 64px auto 120px;
+    .header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        padding: 12px 16px;
+
+    }
+    .body {
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            border-bottom: 1px solid #dfe2e6;
+            padding: 12px 16px;
+            .name{
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 0 10px;
+    border-bottom: 2px solid #000000;
+}

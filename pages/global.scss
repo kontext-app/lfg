@@ -1,0 +1,114 @@
+@font-face {
+    font-family: "Roboto";
+    font-weight: 200;
+    src: url("/fonts/Roboto_Mono/static/RobotoMono-Light.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-weight: 400;
+    src: url("/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-weight: 600;
+    src: url("/fonts/Roboto_Mono/static/RobotoMono-Medium.ttf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    font-weight: 800;
+    src: url("/fonts/Roboto_Mono/static/RobotoMono-Bold.ttf");
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    ///background: #fff;
+    font-size: 16px;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+        Droid Sans, Helvetica Neue, sans-serif;
+    @media (max-width: 768px) {
+        font-size: 14px;
+    }
+}
+
+.bgImg {
+    opacity: 0.15;
+    position: absolute;
+    //left: 0;
+    //top: 0;
+    width: 40%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: -1;
+}
+
+a {
+    cursor: pointer;
+    transition: transform 0.3s;
+    display: inline-block;
+    color: #000;
+    //text-decoration: underline;
+    &:hover {
+        //font-weight: 800;
+        //text-shadow: 1px 0 0 currentColor;
+    }
+    // &:hover {
+    //     transform: translateY(-2px);
+    // }
+}
+
+img {
+    max-width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    padding-right: 16px;
+    padding-left: 16px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1150px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1300px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1400px;
+    }
+}
